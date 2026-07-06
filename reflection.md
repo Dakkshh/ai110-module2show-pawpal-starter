@@ -5,6 +5,12 @@
 **a. Initial design**
 
 - Briefly describe your initial UML design.
+I designed four classes for the system:
+- **Task**: holds a single care activity with a description, time, frequency, and completion status.
+- **Pet**: stores a pet's name and species, and holds a list of Task objects.
+- **Owner**: manages multiple pets and can retrieve all tasks across them.
+- **Scheduler**: the brain of the system — takes an Owner and handles sorting, filtering, and conflict detection.
+
 - What classes did you include, and what responsibilities did you assign to each?
 Three core actions a user should be able to perform:
 1. Add a pet to their profile
@@ -15,6 +21,7 @@ Three core actions a user should be able to perform:
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+After reviewing the skeleton, one potential bottleneck was that the Scheduler had no way to know which pet a task belonged to after sorting — it would just return a flat list of tasks. To fix this, the get_all_tasks method in Owner was changed to return tuples of (pet_name, task) instead of just tasks, so the Scheduler always knows which pet each task belongs to.
 
 ---
 
