@@ -94,10 +94,10 @@ tests/test_pawpal.py::test_conflict_detection PASSED                            
 
 | Feature | Method(s) | Notes |
 |---------|-----------|-------|
-| Task sorting | | e.g., by priority, duration |
-| Filtering | | e.g., skip tasks if time runs out |
-| Conflict handling | | e.g., overlapping time slots |
-| Recurring tasks | | e.g., daily vs. weekly |
+| Task sorting | `Scheduler.sort_by_time()` |  Sorts all tasks by HH:MM time |
+| Filtering |`Scheduler.filter_by_status()` |  Filters tasks by completion status|
+| Conflict handling | `Scheduler.detect_conflicts()` |  Warns when two tasks share the same time slot  |
+| Recurring tasks | `Scheduler.handle_recurring()` |  Creates a new task for next occurrence when a daily task is completed  |
 
 ## 📸 Demo Walkthrough
 

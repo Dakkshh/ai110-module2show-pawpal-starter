@@ -73,3 +73,21 @@ class Scheduler:
             else:
                 times[task.time] = (pet, task)
         return conflicts
+    
+    def handle_recurring(self):
+        """Create a new task for the next day if a daily task is completed."""
+        from datetime import date, timedelta
+        new_tasks = []
+        for pet in self.owner.pets:
+            for task in pet.tasks:
+                if task.completed and task.frequency == "daily":
+                    next_task = Task(
+                        description=task.description,
+                        time=task.time,
+                        frequency=task.frequency,
+                        completed=False
+                    )
+                    new_tasks.append((pet, next_task))
+        for pet, task in new_tasks:
+            pet.add_task(task)
+        return new_tasks
