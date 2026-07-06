@@ -31,11 +31,13 @@ After reviewing the skeleton, one potential bottleneck was that the Scheduler ha
 
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
+The scheduler considers time as the main constraint, sorting all tasks by their HH:MM time slot. Time was the most important constraint because pet care tasks like feeding and medication need to happen at specific times of day.
 
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+The scheduler only checks for exact time matches when detecting conflicts, not overlapping durations. This is reasonable for a simple pet care app where most tasks have a clear start time and owners just need a quick warning.
 
 ---
 
@@ -45,11 +47,13 @@ After reviewing the skeleton, one potential bottleneck was that the Scheduler ha
 
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
+I used Claude to help design the class structure, generate the skeleton code, write pytest tests, and debug issues. The most helpful prompts were specific ones like "add a recurring task method to the Scheduler class" rather than vague ones.
 
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
+Claude initially suggested the check_guess hints fix by only swapping the message strings, but I realized the outcome labels also feed into other logic. I rejected that suggestion and fixed the full condition instead, then verified by running the tests.
 
 ---
 
@@ -59,11 +63,13 @@ After reviewing the skeleton, one potential bottleneck was that the Scheduler ha
 
 - What behaviors did you test?
 - Why were these tests important?
+I tested task completion, task addition, sorting by time, conflict detection, filtering by status, recurring task creation, and edge cases like a pet with no tasks. These were important because they cover all the core scheduler behaviors.
 
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
+I am confident the core features work correctly since all 8 tests pass. Edge cases I would test next include adding tasks with invalid time formats and handling an owner with no pets.
 
 ---
 
@@ -72,11 +78,14 @@ After reviewing the skeleton, one potential bottleneck was that the Scheduler ha
 **a. What went well**
 
 - What part of this project are you most satisfied with?
+The modular class design worked really well. Having Owner, Pet, Task, and Scheduler as separate classes made it easy to test each piece independently and connect them to the UI cleanly.
 
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
+I would add a priority field to tasks so the scheduler could sort by both time and priority, giving more important tasks preference when there are conflicts.
 
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+AI is a powerful tool for generating code, and giving answers, but you always need to verify its suggestions by running the code yourself. The human has to stay in control of the overall design.

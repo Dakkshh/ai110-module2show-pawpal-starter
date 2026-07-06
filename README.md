@@ -78,14 +78,18 @@ platform win32 -- Python 3.12.5, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\vidus\Ap
 cachedir: .pytest_cache
 rootdir: C:\Users\vidus\Downloads\CodePathAI\ai110-module2show-pawpal-starter
 plugins: anyio-4.13.0
-collected 4 items                                                                                        
+collected 8 items                                                                                        
 
-tests/test_pawpal.py::test_mark_complete PASSED                                                    [ 25%]
-tests/test_pawpal.py::test_add_task_increases_count PASSED                                         [ 50%]
-tests/test_pawpal.py::test_sort_by_time PASSED                                                     [ 75%]
-tests/test_pawpal.py::test_conflict_detection PASSED                                               [100%]
+tests/test_pawpal.py::test_mark_complete PASSED                                                    [ 12%]
+tests/test_pawpal.py::test_add_task_increases_count PASSED                                         [ 25%]
+tests/test_pawpal.py::test_sort_by_time PASSED                                                     [ 37%]
+tests/test_pawpal.py::test_conflict_detection PASSED                                               [ 50%]
+tests/test_pawpal.py::test_no_conflict_different_times PASSED                                      [ 62%]
+tests/test_pawpal.py::test_filter_incomplete_tasks PASSED                                          [ 75%]
+tests/test_pawpal.py::test_recurring_task_creates_new PASSED                                       [ 87%]
+tests/test_pawpal.py::test_pet_with_no_tasks PASSED                                                [100%]
 
-=========================================== 4 passed in 0.04s ===========================================
+=========================================== 8 passed in 0.05s ===========================================
 ```
 
 ## 📐 Smarter Scheduling
